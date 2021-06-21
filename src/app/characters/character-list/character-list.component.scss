@@ -1,0 +1,85 @@
+@import 'partial';
+
+/********** FILTERS **********/
+.filters{
+  padding: 1rem 3rem;
+  background-color: $bg-secondary;
+  border-radius: 5px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+
+  /***** Inputs ******/
+  form {
+    margin: .5rem 0;
+
+    @media (max-width: 992px) {
+      display: block;
+      > * {
+        width: 100% !important;
+
+        &.btn {
+          margin-top: 1rem;
+        }
+      }
+    }
+
+    input, select {
+      width: 10vw;
+      margin-left: .5em;
+      border-radius: 3px;
+      border: 1px solid $text-main;
+      margin-right: 1rem;
+
+      &:focus, &:focus-visible {
+        border: 2px solid $text-secondary;
+        outline: none !important;
+      }
+    }
+
+    .btn {
+      padding: .5rem 1.5rem !important;
+    }
+  }
+
+  /***** Pagination ******/
+  .paginator {
+    margin: .5rem 0;
+    width: 100%;
+    justify-content: center;
+
+    button.page-number {
+      padding: .5rem 1rem;
+      cursor: pointer;
+      background-color: $bg-secondary;
+      color: $text-main;
+      border: 0;
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+
+      &.active {
+        color: $contrast;
+      }
+    }
+  }
+
+}
+
+
+/********** CHARACTER LIST **********/
+.char-list-container {
+  padding: .5rem;
+
+  .column {
+    flex: 0 0 auto;
+    padding: .5rem;
+    // height: 100%;
+    width: calc(100% - 1rem);
+
+    @media (min-width: 992px) {
+      width: calc(50% - 1rem);
+    }
+  }
+}

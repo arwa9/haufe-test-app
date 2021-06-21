@@ -1,0 +1,22 @@
+<div class="row">
+  <h1>
+    Hey! What are you doing here?!
+  </h1>
+  <h2 class="ml-auto">
+    Error 404 - Not found
+  </h2>
+</div>
+
+<p>
+  You're not supposed to be here. What were you doing? Tryng to find some bugs, right?
+</p>
+<p>
+  Please, don't go changing other people's pages' URLs like that. It's rude.
+</p>
+<p>
+  The button below will take you to the main page and we'll do as if nothing happened here. Now, click it, would you kindly?
+</p>
+
+<button class="btn" *ngIf="messages[ind]" [routerLink]="'/home'">
+  {{messages[ind]}}
+</button>

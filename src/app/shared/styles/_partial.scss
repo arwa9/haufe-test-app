@@ -1,0 +1,34 @@
+/***** Color variables *****/
+$bg-main: #293241;
+$bg-secondary: #3d5a80;
+$text-main: #e0fbfc;
+$text-secondary: #98c1d9;
+$contrast: #ee6c4d;
+$shadow: #202020;
+
+/***** Global Custom classes *****/
+.row {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+}
+
+.btn {
+  color: $shadow;
+  background-color: $contrast;
+  border-color: $contrast;
+  border-radius: 5px;
+  box-shadow: 4px 3px 6px $shadow;
+  padding: 1rem 3rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $contrast;
+    filter: brightness(.8);
+  }
+}
+
+.ml-auto {
+  margin-left: auto;
+}

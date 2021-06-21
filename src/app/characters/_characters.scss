@@ -1,0 +1,30 @@
+.dot {
+  width: .5em;
+  height: .5em;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: .5em;
+
+  &.dead {
+    background-color: #dc3545;
+  }
+  &.alive {
+    background-color: #28a745;
+  }
+  &.unkown {
+    background-color: gray;
+  }
+}
+
+section {
+
+  label {
+    color: $text-secondary;
+  }
+
+  span {
+    display: block;
+    margin-bottom: 1em;
+  }
+
+}

@@ -1,0 +1,46 @@
+<button class="btn" [routerLink]="'/characters/list'">&#8656;</button>
+
+<div class="char-container" *ngIf="(character | async); let char; else noData">
+  <!-- Image -->
+  <div class="img-container">
+    <img [src]="char.image" alt="">
+  </div>
+  <!-- Details -->
+  <div class="details">
+    <!-- Name -->
+    <h1>
+      <span>{{char.name}}</span>
+      <span>{{
+        (char.gender === 'Female') ? '&#9792;' :
+          (char.gender === 'Male') ? '&#9794;' :
+          ''
+      }}</span>
+    </h1>
+    <!-- Status -->
+    <section>
+      <label>Status:</label>
+      <span>
+        <div class="dot" [ngClass]="(char.status?.toString() || '') | lowercase"></div>
+        {{char.status}}
+      </span>
+    </section>
+    <!-- Species -->
+    <section>
+      <label>Species:</label>
+      <span>{{char.species}}</span>
+    </section>
+
+    <section>
+      <label>Last Known Location:</label>
+      <p>{{char.location?.name}}</p>
+    </section>
+
+    <section>
+      <label>First seen in:</label>
+      <p>{{char.origin?.name}}</p>
+    </section>
+
+  </div>
+</div>
+
+<ng-template #noData>Data for the selected character could not be loaded.</ng-template>

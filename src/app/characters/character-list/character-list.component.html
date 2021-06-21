@@ -1,0 +1,49 @@
+<div class="filters">
+  <!-- --- Filters --- -->
+  <form class="row" [formGroup]="filtersForm" (ngSubmit)="loadData()">
+    <!-- Name -->
+    <label>Name:</label>
+    <input type="text" formControlName="name">
+    <label>Status:</label>
+    <select formControlName="status">
+      <option *ngFor="let st of statusList" [value]="st">{{st || 'All'}}</option>
+    </select>
+    <label>Species:</label>
+    <input type="text" formControlName="species">
+    <!-- Submit Button -->
+    <button class="btn ml-auto" type="submit">Search</button>
+  </form>
+
+  <!----- Pagination ----->
+  <div class="row paginator" *ngIf="((characterList$ | async) || []).length > 0">
+    <button
+      class="page-number"
+      [ngStyle]="{visibility: (currentPage > 1) ? 'visible' : 'hidden' }"
+      (click)="loadData(currentPage-1)">
+      <
+    </button>
+    <button
+      class="page-number"
+      *ngFor="let i of pageArray"
+      [ngClass]="{'active': i === currentPage}"
+      (click)="loadData(i)"
+      >{{i}}
+    </button>
+    <button
+      class="page-number"
+      [ngStyle]="{visibility: (currentPage < ((responseInfo$ | async)?.pages || 0)) ? 'visible' : 'hidden' }"
+      (click)="loadData(currentPage+1)">
+      >
+    </button>
+  </div>
+</div>
+
+<!----- Character List ----->
+<div class="row char-list-container">
+  <div class="column" *ngFor="let char of (characterList$ | async)" >
+    <app-character-card [character]="char" [routerLink]="'/characters/view'" [queryParams]="{id: char.id}"></app-character-card>
+  </div>
+  <div *ngIf="showWarning">
+    There is no data matching the selected criteria.
+  </div>
+</div>

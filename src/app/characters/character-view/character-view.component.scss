@@ -1,0 +1,10 @@
+@import 'partial';
+@import '../characters';
+
+.char-container {
+  margin: 1rem 0;
+  padding: 1rem 3rem;
+  border-radius: .5rem;
+  background-color: $bg-secondary;
+
+}
